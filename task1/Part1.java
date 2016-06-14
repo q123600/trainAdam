@@ -5,6 +5,7 @@ public class Part1 {
             for(int b = 0 ; b <= i ; b += 1){
             	System.out.print("*");
             }
+            
             System.out.println();
         }
     }
