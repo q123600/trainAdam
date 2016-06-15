@@ -6,7 +6,7 @@ public class First {
             for(int b = 0 ; b <= i && b <= (n - 1) * 2 - i; b += 1){
                 System.out.print("*");
             }
-        System.out.println();
+            System.out.println();
         }
     }
 }
