@@ -1,88 +1,101 @@
 
-public class MagicMatrix {
+public class magicMatrix {
 	public static void main(String[] args) {
-		int n = 3;
+		int n = 13;
 		int [] all = new int [n*n];
-		int e = 1;
+		int element = n/2;
 		for(int i = 1; i <= n*n; i ++){
-			if(all[e] == 0){
-				all[e] = i;
-				e -= n;
-				if(e < 0){
-					int c = e + n*n + 1;
-					if(c >= 9 || c < 0 || all[c] != 0){
-						e += n;
+			if(all[element] == 0){
+				all[element] = i;
+				element -= n;
+				if(element < 0){
+					int c = element + n*n + 1;
+					if(c >= n*n || c < 0 || all[c] != 0){
+						element += n;
 					}
 					else{
-						e = c;
+						element = c;
 					}
 				}
 				else{
-					int c = e + 1;
+					int c = element + 1;
 					if(c % n == 0){
 						c -= n;
 						if(all[c] == 0){
-							e = c;
+							element = c;
 						}
 						else{
-							e += n;
+							element += n;
 						}
 					}
 					else{
 						if(all[c] == 0){
-							e = c;
+							element = c;
 						}
 						else{
-							e += n;
+							element += n;
 						}
 					}
 				}
 			} //end first if
 			else{
-				e += n;
-				if(e >= n*n){
-					e -= n*n;
-					all[e] = i;
+				element += n;
+				if(element >= n*n){
+					element -= n*n;
+					all[element] = i;
 				}
 				else{
-					if(all[e] == 0){
-						all[e] = i;
+					if(all[element] == 0){
+						all[element] = i;
 					}
 					else{
-						e += 1;
-						if(e >= n*n){
-							e -= n*n;
-							all[e] = i;
+						element += 1;
+						if(element >= n*n){
+							element -= n*n;
+							all[element] = i;
 						}
 						else{
-							all[e] = i;
+							all[element] = i;
 						}
 					}
 				}
-				e -= n;
-				if(e < 0){
-					int c = e + n*n + 1;
-					if(c >= 9 || c < 0 || all[c] != 0){
-						e += n;
+				element -= n;
+				if(element < 0){
+					int c = element + n*n + 1;
+					if(c >= n*n || c < 0 || all[c] != 0){
+						element += n;
 					}
 					else{
-						e = c;
+						element = c;
 					}
 				}
 				else{
-					int c = e + 1;
-					if(all[c] == 0){
-						e = c;
+					int c = element + 1;
+					if(c % n == 0){
+						element = c - n;
 					}
 					else{
-						e += n;
+						if(all[c] == 0){
+							element = c;
+						}
+						else{
+							element += n;
+						}
 					}
 				}
 			}
 		} // end for loop
-		for(int r = 0; r < 2*n + 1; r += 3){
+		for(int r = 0; r < n*n; r += n){
 			for(int c = 0; c < n; c += 1){
-				System.out.print(all[r + c]);
+				if(all[r + c] < 10){
+					System.out.print(all[r + c]);
+					System.out.print(" ");
+					System.out.print(" | ");
+				}
+				else{
+					System.out.print(all[r + c]);
+					System.out.print(" | ");
+				}
 			}
 			System.out.println();
 		}
