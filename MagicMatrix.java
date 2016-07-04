@@ -1,7 +1,10 @@
 
-public class magicMatrix {
+public class MagicMatrix {
 	public static void main(String[] args) {
-		int n = 13;
+		magicMatrix();
+			}
+	public static void magicMatrix() {
+		int n = 113;
 		int [] all = new int [n*n];
 		int element = n/2;
 		for(int i = 1; i <= n*n; i ++){
@@ -85,17 +88,14 @@ public class magicMatrix {
 				}
 			}
 		} // end for loop
+		int z = 1;
+		while(z > n*n){
+			z = z * 10;
+		}
 		for(int r = 0; r < n*n; r += n){
 			for(int c = 0; c < n; c += 1){
-				if(all[r + c] < 10){
-					System.out.print(all[r + c]);
-					System.out.print(" ");
+					System.out.printf("%03d ", all[r + c]);
 					System.out.print(" | ");
-				}
-				else{
-					System.out.print(all[r + c]);
-					System.out.print(" | ");
-				}
 			}
 			System.out.println();
 		}
