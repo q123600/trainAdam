@@ -1,10 +1,11 @@
-
-public class MagicMatrix {
+public class First {
 	public static void main(String[] args) {
-		magicMatrix();
+		int n = 13;
+		int [] all;
+		all =  magicMatrixOrder(n);
+		printInProper(all, n);
 			}
-	public static void magicMatrix() {
-		int n = 113;
+	public static int [] magicMatrixOrder(int n) {
 		int [] all = new int [n*n];
 		int element = n/2;
 		for(int i = 1; i <= n*n; i ++){
@@ -88,13 +89,34 @@ public class MagicMatrix {
 				}
 			}
 		} // end for loop
-		int z = 1;
-		while(z > n*n){
-			z = z * 10;
+		return all;
+	}
+	public static void printInProper(int [] all, int n) {
+		int range = 1;
+		int digit = 0;
+		if(range < n*n){
+			range += 1;
 		}
+		while(range < n*n){
+			range = range * 10;
+			digit += 1;
+		}
+		
 		for(int r = 0; r < n*n; r += n){
 			for(int c = 0; c < n; c += 1){
-					System.out.printf("%03d ", all[r + c]);
+					System.out.print(all[r + c]);
+					int range2 = 0;
+					int digit2 = 0;
+					if(range2 < all[r + c] || all[r + c] == 0){
+						range2 += 1;
+					}
+					while(range2 <= all[r + c]){
+						range2 = range2 * 10;
+						digit2 += 1;
+					}
+						for(int cd = 0; cd <= digit - digit2; cd += 1){
+							System.out.print(" ");
+						}
 					System.out.print(" | ");
 			}
 			System.out.println();
