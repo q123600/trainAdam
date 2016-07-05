@@ -1,4 +1,5 @@
-public class First {
+
+public class MagicMatrix {
 	public static void main(String[] args) {
 		int n = 13;
 		int [] all;
@@ -102,15 +103,15 @@ public class First {
 			digit += 1;
 		}
 		
-		for(int r = 0; r < n*n; r += n){
-			for(int c = 0; c < n; c += 1){
-					System.out.print(all[r + c]);
+		for(int row = 0; row < n*n; row += n){
+			for(int column = 0; column < n; column += 1){
+					System.out.print(all[row + column]);
 					int range2 = 0;
 					int digit2 = 0;
-					if(range2 < all[r + c] || all[r + c] == 0){
+					if(range2 < all[row + column] || all[row + column] == 0){
 						range2 += 1;
 					}
-					while(range2 <= all[r + c]){
+					while(range2 <= all[row + column]){
 						range2 = range2 * 10;
 						digit2 += 1;
 					}
