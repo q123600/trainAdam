@@ -41,6 +41,7 @@ public class MagicMatrix {
 			System.out.println();
 		}
 	}
+	
 	public static int findNextIndex(int element, int[] all, int n, int i){
 		if(all[element] == 0){
 			all[element] = i;
